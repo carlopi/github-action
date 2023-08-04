@@ -38,7 +38,6 @@ runs:
         elif [ ${{ runner.os }} = "macOS" ]; then
             if [ ! -f '/usr/local/bin/duckdb_${VERSION}' ]; then
                 wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-osx-universal.zip
-                gh run download 5756981651 -R duckdb/duckdb
                 unzip duckdb_cli-osx-universal.zip
                 rm duckdb_cli-osx-universal.zip
                 chmod +x duckdb

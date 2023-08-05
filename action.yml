@@ -31,7 +31,7 @@ runs:
             if [ ! -f '/usr/local/bin/duckdb_${VERSION}' ]; then
                 if [ ${VERSION} = "latest" ]; then
                     wget -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-linux-amd64.zip
-		else
+                else
                     wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-linux-amd64.zip
                 fi
                 unzip duckdb_cli-linux-amd64.zip
@@ -43,7 +43,7 @@ runs:
             if [ ! -f '/usr/local/bin/duckdb_${VERSION}' ]; then
                 if [ ${VERSION} = "latest" ]; then
                     wget -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-osx-universal.zip
-		else
+                else
                     wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-osx-universal.zip
                 fi
                 unzip duckdb_cli-osx-universal.zip
@@ -55,7 +55,7 @@ runs:
             if [ ! -f 'C:/Program\ Files/duckdb_${VERSION}.exe' ]; then
                 if [ ${VERSION} = "latest" ]; then
                     C:/msys64/usr/bin/wget.exe -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-windows-amd64.zip
-		else
+                else
                     C:/msys64/usr/bin/wget.exe -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-windows-amd64.zip
                 fi
                 unzip duckdb_cli-windows-amd64.zip

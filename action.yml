@@ -29,7 +29,11 @@ runs:
       run: |
         if [ ${{ runner.os }} = "Linux" ]; then
             if [ ! -f '/usr/local/bin/duckdb_${VERSION}' ]; then
-                wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-linux-amd64.zip
+                if [ ${VERSION} = "latest" ]; then
+                    wget -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-linux-amd64.zip
+		else
+                    wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-linux-amd64.zip
+                fi
                 unzip duckdb_cli-linux-amd64.zip
                 rm duckdb_cli-linux-amd64.zip
                 chmod +x duckdb
@@ -37,7 +41,11 @@ runs:
             fi
         elif [ ${{ runner.os }} = "macOS" ]; then
             if [ ! -f '/usr/local/bin/duckdb_${VERSION}' ]; then
-                wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-osx-universal.zip
+                if [ ${VERSION} = "latest" ]; then
+                    wget -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-osx-universal.zip
+		else
+                    wget -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-osx-universal.zip
+                fi
                 unzip duckdb_cli-osx-universal.zip
                 rm duckdb_cli-osx-universal.zip
                 chmod +x duckdb
@@ -45,7 +53,11 @@ runs:
             fi
         elif [ ${{ runner.os }} = "Windows" ]; then
             if [ ! -f 'C:/Program\ Files/duckdb_${VERSION}.exe' ]; then
-                C:/msys64/usr/bin/wget.exe -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-windows-amd64.zip
+                if [ ${VERSION} = "latest" ]; then
+                    C:/msys64/usr/bin/wget.exe -q wget https://carlopi.github.io/duckdb-latest/duckdb_cli-windows-amd64.zip
+		else
+                    C:/msys64/usr/bin/wget.exe -q https://github.com/duckdb/duckdb/releases/download/${VERSION}/duckdb_cli-windows-amd64.zip
+                fi
                 unzip duckdb_cli-windows-amd64.zip
                 rm duckdb_cli-windows-amd64.zip
                 chmod +x duckdb.exe
